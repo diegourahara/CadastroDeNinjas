@@ -1,6 +1,9 @@
-package farias.diego.CadastroDeNinjas;
+package farias.diego.CadastroDeNinjas.Ninjas;
 
+import farias.diego.CadastroDeNinjas.Missoes.MissoesModel;
 import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 @Table(name = "tb_cadastro")
@@ -11,6 +14,11 @@ public class NinjaModel {
     private String nome;
     private int idade;
     private String email;
+
+    // @ManyToOne: 1 ninja tem 1 única missão
+    @ManyToOne
+    @JoinColumn(name = "missoes_id")
+    private MissoesModel missoes;
 
     public NinjaModel() {
 
